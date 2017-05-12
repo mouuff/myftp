@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Fri May 12 15:08:25 2017 arnaud.alies
+## Last update Fri May 12 17:19:37 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -41,4 +41,3 @@ fclean:		clean
 re:		fclean all
 
 .PHONY: all clean fclean re
-
