@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Sat May 13 16:30:14 2017 arnaud.alies
+** Last update Sat May 13 18:31:17 2017 arnaud.alies
 */
 
 #include "server.h"
@@ -13,12 +13,12 @@
 int     server_init(t_server *server, int port)
 {
   (server->port) = port;
-  if ((server->pe = getprotobyname("TCP")) == NULL)
+  if ((server->proto = getprotobyname("TCP")) == NULL)
     return (1);
   (server->addr).sin_family = AF_INET;
   (server->addr).sin_port = htons((server->port));
   (server->addr).sin_addr.s_addr = INADDR_ANY;
-  if (((server->fd) = socket(AF_INET, SOCK_STREAM, (server->pe)->p_proto)) == -1)
+  if (((server->fd) = socket(AF_INET, SOCK_STREAM, (server->proto)->p_proto)) == -1)
     return (1);
   clean_add_fd(server->fd);
   if ((bind((server->fd),

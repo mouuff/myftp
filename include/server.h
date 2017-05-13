@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sat May 13 16:29:51 2017 arnaud.alies
+** Last update Sat May 13 18:45:29 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -20,9 +20,21 @@
 
 #define MAX_CLIENTS (42)
 
+typedef enum e_ret
+  {
+    E_OK = 0,
+    E_UNK,
+    E_PROTO,
+    E_SOCKET,
+    E_BIND,
+    E_LISTEN,
+    E_ACCEPT,
+    E_FORK
+  } t_ret;
+
 typedef struct s_server
 {
-  struct protoent *pe;
+  struct protoent *proto;
   struct sockaddr_in addr;
   int fd;
   int port;
