@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sat May 13 11:43:53 2017 arnaud.alies
+** Last update Sat May 13 15:46:50 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -23,10 +23,17 @@
 typedef struct s_server
 {
   struct protoent *pe;
-  struct sockaddr_in in;
+  struct sockaddr_in addr;
   int fd;
   int port;
 } t_server;
+
+typedef struct s_client
+{
+  int fd;
+  struct sockaddr_in addr;
+  socklen_t addrlen;
+} t_client;
 
 void    *xmalloc(size_t size);
 
@@ -37,7 +44,5 @@ void    *xmalloc(size_t size);
 void clean_add_fd(int fd);
 void clean_close_fd(int fd);
 void clean();
-
-
 
 #endif
