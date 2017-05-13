@@ -5,8 +5,13 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sat May 13 11:09:23 2017 arnaud.alies
+** Last update Sat May 13 12:28:17 2017 arnaud.alies
 */
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 
 #include "server.h"
 
@@ -30,8 +35,13 @@ int	server_init(int port)
 
 int		main()
 {
+  clean_add_fd(open("Makefile", O_RDONLY));
+  clean_add_fd(open("server", O_RDONLY));
+  clean();
+  /*
   if ((server_init(4242)) == -1)
     return (1);
+  */  
   //atexit(server_close);
   return (0);
 }
