@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Fri May 12 17:19:37 2017 arnaud.alies
+## Last update Sat May 13 11:43:19 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -21,7 +21,9 @@ LDFLAGS	+=
 
 SRC	=	./src/
 
-SRCS	=	$(SRC)main.c
+SRCS	=	$(SRC)main.c \
+		$(SRC)xmalloc.c \
+		$(SRC)clean.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

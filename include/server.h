@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Fri May 12 18:12:46 2017 arnaud.alies
+** Last update Sat May 13 11:43:53 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -18,6 +18,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#define MAX_CLIENTS (42)
+
 typedef struct s_server
 {
   struct protoent *pe;
@@ -25,5 +27,17 @@ typedef struct s_server
   int fd;
   int port;
 } t_server;
+
+void    *xmalloc(size_t size);
+
+/*
+** Cleaner
+*/
+
+void clean_add_fd(int fd);
+void clean_close_fd(int fd);
+void clean();
+
+
 
 #endif
