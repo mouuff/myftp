@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sat May 13 15:46:50 2017 arnaud.alies
+** Last update Sat May 13 16:29:51 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -36,6 +36,13 @@ typedef struct s_client
 } t_client;
 
 void    *xmalloc(size_t size);
+
+/*
+** Server
+*/
+
+int     server_init(t_server *server, int port);
+int     server_accept(t_client *client, t_server const *server);
 
 /*
 ** Cleaner

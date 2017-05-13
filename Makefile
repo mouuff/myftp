@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Sat May 13 11:43:19 2017 arnaud.alies
+## Last update Sat May 13 16:30:36 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -23,6 +23,7 @@ SRC	=	./src/
 
 SRCS	=	$(SRC)main.c \
 		$(SRC)xmalloc.c \
+		$(SRC)server.c \
 		$(SRC)clean.c \
 
 OBJS	=	$(SRCS:.c=.o)
