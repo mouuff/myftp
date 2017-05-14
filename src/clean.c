@@ -5,9 +5,11 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 11:11:48 2017 arnaud.alies
-** Last update Sat May 13 12:34:26 2017 arnaud.alies
+** Last update Sun May 14 11:02:58 2017 arnaud.alies
 */
 
+#include <stdio.h>
+#include <errno.h>
 #include <string.h>
 #include <unistd.h>
 #include "server.h"
@@ -55,6 +57,8 @@ void		clean_close_fd(int fd)
 
 void		clean()
 {
+  if (errno != 0)
+    printf("Error: %s\n", strerror(errno));
   while (g_size > 0)
     {
       clean_close_fd(g_fds[g_size - 1]);
