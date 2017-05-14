@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Sun May 14 16:02:34 2017 arnaud.alies
+** Last update Sun May 14 16:11:50 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -25,15 +25,14 @@ static int	ftp_server(t_server *server, t_client *client)
 {
   char		buff[BUFF_SIZE + 1];
   t_ftp		ftp;
-  int		rd;
 
   ftp_init(&ftp, server, client);
   while (ftp.running)
     {
       memset(buff, '\0', BUFF_SIZE + 1);
-      if ((rd = read(client->fd, buff, BUFF_SIZE)) == -1)
+      if (read(client->fd, buff, BUFF_SIZE) < 1)
         return (1);
-      printf("%d : %s\n", rd, buff);
+      printf("%s\n", buff);
     }
   return (0);
 }
@@ -50,6 +49,7 @@ int             ftp_accept(t_server *server)
   if (pid == 0)
     {
       ftp_server(server, &client);
+      printf("Closing connection\n");
       exit(0);
     }
   else
