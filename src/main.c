@@ -5,23 +5,31 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 11:05:49 2017 arnaud.alies
+** Last update Sun May 14 12:18:10 2017 arnaud.alies
 */
 
 #include <stdio.h>
+#include <signal.h>
 #include "server.h"
 
-int		serve(t_server *server)
+void	sigint(int sig)
+{
+  (void)sig;
+  exit(0);
+}
+
+int		serve(t_sock *sock)
 {
   t_client	client;
   pid_t		pid;
 
-  if (server_accept(&client, server) == 1)
+  if (sock_accept(&client, sock) == 1)
     return (1);
   if ((pid = fork()) == -1)
     return (1);
   if (pid == 0)
     {
+      
       exit(0);
     }
   else
@@ -33,17 +41,18 @@ int		serve(t_server *server)
 
 int		main()
 {
-  t_server	server;
+  t_sock	sock;
   int		port;
 
   port = 4241;
+  signal(SIGINT, &sigint);
   atexit(clean);  
-  if ((server_init(&server, port)) == -1)
+  if ((sock_init(&sock, port)) == -1)
     return (1);
-  printf("Server listenning on: %d\n", port);
+  printf("Sock listenning on: %d\n", port);
   while (42)
     {
-      if (serve(&server) == 1)
+      if (serve(&sock) == 1)
 	return (1);
     }
   return (0);
