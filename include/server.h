@@ -5,18 +5,20 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 12:53:44 2017 arnaud.alies
+** Last update Sun May 14 13:44:51 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
 #define SERVER_H_
 
+#include <stdbool.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <stdlib.h>
+//#include <linux/limits.h>
 
 #define MAX_CODE_SIZE (4)
 #define MAX_CLIENTS (42)
@@ -35,6 +37,14 @@ typedef struct s_client
   struct sockaddr_in addr;
   socklen_t addrlen;
 } t_client;
+
+typedef struct s_ftp
+{
+  t_server *server;
+  t_client *client;
+  bool logged;
+  bool running;
+} t_ftp;
 
 void    *xmalloc(size_t size);
 

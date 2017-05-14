@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Sun May 14 12:56:36 2017 arnaud.alies
+** Last update Sun May 14 14:04:53 2017 arnaud.alies
 */
 
 #include <unistd.h>
@@ -39,6 +39,7 @@ int     server_accept(t_client *client, t_server const *server)
                            (struct sockaddr*)&(client->addr),
                            &(client->addrlen))) == -1)
     return (1);
+  clean_add_fd(client->fd);
   return (0);
 }
 
