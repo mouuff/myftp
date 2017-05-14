@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 14:06:10 2017 arnaud.alies
+** Last update Sun May 14 14:13:34 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -68,7 +68,7 @@ int		main()
   port = 4242;
   signal(SIGINT, &sigint);
   atexit(clean);  
-  if ((server_init(&server, port)) == -1)
+  if ((server_init(&server, port)) == 1)
     return (1);
   printf("Server listenning on: %d\n", port);
   while (42)
