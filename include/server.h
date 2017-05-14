@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 15:28:13 2017 arnaud.alies
+** Last update Sun May 14 15:51:35 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -20,8 +20,8 @@
 #include <stdlib.h>
 //#include <linux/limits.h>
 
-#define MAX_CODE_SIZE (4)
 #define MAX_CLIENTS (42)
+#define BUFF_SIZE (256)
 
 typedef struct s_server
 {
@@ -46,6 +46,12 @@ typedef struct s_ftp
   bool running;
 } t_ftp;
 
+void    *xmalloc(size_t size);
+
+/*
+** Command
+*/
+
 typedef int(*t_cmd_handler)(t_ftp *ftp, char *cmd);
 
 typedef struct s_cmd
@@ -53,8 +59,6 @@ typedef struct s_cmd
   char const *str;
   t_cmd_handler func;
 } t_cmd;
-
-void    *xmalloc(size_t size);
 
 /*
 ** Server
@@ -69,6 +73,7 @@ int	server_send(int sockfd, char *str);
 */
 
 int	ftp_accept(t_server *server);
+
 
 /*
 ** Cleaner
