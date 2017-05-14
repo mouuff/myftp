@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Sun May 14 15:58:08 2017 arnaud.alies
+## Last update Sun May 14 17:19:14 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -24,6 +24,7 @@ SRC	=	./src/
 SRCS	=	$(SRC)main.c \
 		$(SRC)xmalloc.c \
 		$(SRC)server.c \
+		$(SRC)command.c \
 		$(SRC)ftp.c \
 		$(SRC)clean.c \
 
