@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 14:15:27 2017 arnaud.alies
+** Last update Sun May 14 14:34:09 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -45,7 +45,7 @@ int		ftp_accept(t_server *server)
   t_client	client;
   pid_t		pid;
 
-  if (server_accept(&client, server) == 1)
+  if (server_accept(&client, server))
     return (1);
   if ((pid = fork()) == -1)
     return (1);
@@ -69,12 +69,12 @@ int		main()
   port = 4242;
   signal(SIGINT, &sigint);
   atexit(clean);  
-  if ((server_init(&server, port)) == 1)
+  if (server_init(&server, port))
     return (1);
   printf("Server listenning on: %d\n", port);
   while (42)
     {
-      if (ftp_accept(&server) == 1)
+      if (ftp_accept(&server))
 	return (1);
     }
   return (0);
