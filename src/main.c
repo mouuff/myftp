@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 12:22:40 2017 arnaud.alies
+** Last update Sun May 14 12:33:27 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -16,6 +16,11 @@ void	sigint(int sig)
 {
   (void)sig;
   exit(0);
+}
+
+void	ftp_server(t_server *server, t_client *client)
+{
+  write(client->fd, "220", 3);
 }
 
 int		ftp_accept(t_server *server)
@@ -29,7 +34,7 @@ int		ftp_accept(t_server *server)
     return (1);
   if (pid == 0)
     {
-      
+      ftp_server(server, &client);
       exit(0);
     }
   else

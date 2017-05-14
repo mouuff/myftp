@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 12:23:17 2017 arnaud.alies
+** Last update Sun May 14 12:53:44 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+#define MAX_CODE_SIZE (4)
 #define MAX_CLIENTS (42)
 
 typedef struct s_server
@@ -43,6 +44,7 @@ void    *xmalloc(size_t size);
 
 int     server_init(t_server *server, int port);
 int     server_accept(t_client *client, t_server const *server);
+int	server_send(int sockfd, char *str);
 
 /*
 ** FTP server
