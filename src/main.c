@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 12:18:10 2017 arnaud.alies
+** Last update Sun May 14 12:22:40 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -18,12 +18,12 @@ void	sigint(int sig)
   exit(0);
 }
 
-int		serve(t_sock *sock)
+int		ftp_accept(t_server *server)
 {
   t_client	client;
   pid_t		pid;
 
-  if (sock_accept(&client, sock) == 1)
+  if (server_accept(&client, server) == 1)
     return (1);
   if ((pid = fork()) == -1)
     return (1);
@@ -41,18 +41,18 @@ int		serve(t_sock *sock)
 
 int		main()
 {
-  t_sock	sock;
+  t_server	server;
   int		port;
 
   port = 4241;
   signal(SIGINT, &sigint);
   atexit(clean);  
-  if ((sock_init(&sock, port)) == -1)
+  if ((server_init(&server, port)) == -1)
     return (1);
-  printf("Sock listenning on: %d\n", port);
+  printf("Server listenning on: %d\n", port);
   while (42)
     {
-      if (serve(&sock) == 1)
+      if (ftp_accept(&server) == 1)
 	return (1);
     }
   return (0);

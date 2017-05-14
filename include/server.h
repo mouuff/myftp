@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 11:54:54 2017 arnaud.alies
+** Last update Sun May 14 12:23:17 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -20,13 +20,13 @@
 
 #define MAX_CLIENTS (42)
 
-typedef struct s_sock
+typedef struct s_server
 {
   struct protoent *proto;
   struct sockaddr_in addr;
   int fd;
   int port;
-} t_sock;
+} t_server;
 
 typedef struct s_client
 {
@@ -38,11 +38,17 @@ typedef struct s_client
 void    *xmalloc(size_t size);
 
 /*
-** Sock
+** Server
 */
 
-int     sock_init(t_sock *sock, int port);
-int     sock_accept(t_client *client, t_sock const *sock);
+int     server_init(t_server *server, int port);
+int     server_accept(t_client *client, t_server const *server);
+
+/*
+** FTP server
+*/
+
+int	ftp_accept(t_server *server);
 
 /*
 ** Cleaner
