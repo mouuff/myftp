@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 11:11:48 2017 arnaud.alies
-** Last update Sun May 14 12:57:38 2017 arnaud.alies
+** Last update Sun May 14 14:15:34 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -57,7 +57,6 @@ void		clean_close_fd(int fd)
 
 void		clean()
 {
-  printf("\n");
   if (errno != 0)
     printf("Error: %s\n", strerror(errno));
   printf("Exiting.\n");

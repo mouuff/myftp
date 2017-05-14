@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 13:44:51 2017 arnaud.alies
+** Last update Sun May 14 14:15:12 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -22,6 +22,12 @@
 
 #define MAX_CODE_SIZE (4)
 #define MAX_CLIENTS (42)
+
+typedef enum e_ret
+  {
+    OK = 0,
+    KO
+  } t_ret;
 
 typedef struct s_server
 {

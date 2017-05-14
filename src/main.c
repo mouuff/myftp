@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 14:13:34 2017 arnaud.alies
+** Last update Sun May 14 14:15:27 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -15,6 +15,7 @@
 void	sigint(int sig)
 {
   (void)sig;
+  printf("\n");
   exit(0);
 }
 
