@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Mon May 15 18:24:38 2017 arnaud.alies
+## Last update Mon May 15 18:59:25 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -23,13 +23,16 @@ SRC	=	./src/
 
 SRC_CMD	=	$(SRC)cmd/
 
+SRC_MY	=	$(SRC)my/
+
 SRCS	=	$(SRC)main.c \
-		$(SRC)xmalloc.c \
 		$(SRC)server.c \
 		$(SRC)ftp.c \
 		$(SRC)clean.c \
 		$(SRC_CMD)quit.c \
 		$(SRC_CMD)run.c \
+		$(SRC_CMD)user.c \
+		$(SRC_MY)malloc.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

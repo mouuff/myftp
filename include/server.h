@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Mon May 15 18:33:26 2017 arnaud.alies
+** Last update Mon May 15 18:59:58 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -61,7 +61,11 @@ typedef struct s_ftp
   bool running;
 } t_ftp;
 
-void    *xmalloc(size_t size);
+/*
+** My
+*/
+
+void    *my_malloc(size_t size);
 
 /*
 ** Command
@@ -77,6 +81,7 @@ typedef struct s_cmd
   t_cmd_handler func;
 } t_cmd;
 
+int cmd_user(t_ftp *ftp, char *cmd);
 int cmd_quit(t_ftp *ftp, char *cmd);
 
 int cmd_run(t_ftp *ftp, char *cmd);

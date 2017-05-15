@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 11:11:48 2017 arnaud.alies
-** Last update Mon May 15 18:14:12 2017 arnaud.alies
+** Last update Mon May 15 19:00:14 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -21,7 +21,7 @@ void	clean_add_fd(int fd)
 {
   int	*res;
 
-  res = xmalloc(sizeof(int) * (g_size + 1));
+  res = my_malloc(sizeof(int) * (g_size + 1));
   res[g_size] = fd;
   if (g_fds != NULL)
     memcpy(res, g_fds, sizeof(int) * g_size);
@@ -36,7 +36,7 @@ void		clean_close_fd(int fd)
   register int	x;
   register int	y;
 
-  res =	xmalloc(sizeof(int) * g_size);
+  res =	my_malloc(sizeof(int) * g_size);
   x = 0;
   y = 0;
   while (x < g_size)
