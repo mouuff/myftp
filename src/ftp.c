@@ -5,14 +5,14 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Mon May 15 17:45:14 2017 arnaud.alies
+** Last update Mon May 15 18:33:55 2017 arnaud.alies
 */
 
 #include <stdio.h>
 #include <string.h>
 #include "server.h"
 
-int	ftp_send(t_ftp *ftp, int code, char *str)
+int	ftp_send(t_ftp *ftp, t_code code, char *str)
 {
   char	buff[BUFF_SIZE];
 
@@ -29,7 +29,7 @@ static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
   ftp->client = client;
   ftp->logged = false;
   ftp->running = true;
-  return (ftp_send(ftp, 220, "(myFTP)"));
+  return (ftp_send(ftp, FTP_RDY, "(myFTP)"));
 }
 
 static int	ftp_server(t_server *server, t_client *client)
@@ -69,6 +69,7 @@ int             ftp_accept(t_server *server)
     }
   else
     {
+      clean_close_fd(client.fd);
       printf("New client: %s\n", inet_ntoa(client.addr.sin_addr));
     }
   return (0);

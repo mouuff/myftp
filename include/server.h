@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Mon May 15 17:43:25 2017 arnaud.alies
+** Last update Mon May 15 18:33:26 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -38,7 +38,6 @@ typedef struct s_client
   socklen_t addrlen;
 } t_client;
 
-/*
 typedef enum e_code
   {
     FTP_RDY = 220,
@@ -50,9 +49,9 @@ typedef enum e_code
     FTP_COMPLETED = 250,
     FTP_CREATED = 257,
     FTP_NEED_PASS = 331,
-    FTP_NEED_ACC = 332
+    FTP_NEED_ACC = 332,
+    FTP_NOT_LOGGED = 530
   } t_code;
-*/
 
 typedef struct s_ftp
 {
@@ -68,6 +67,7 @@ void    *xmalloc(size_t size);
 ** Command
 */
 
+#define DEF_CMD(cmd) {#cmd, cmd_##cmd}
 
 typedef int(*t_cmd_handler)(t_ftp *ftp, char *cmd);
 
@@ -76,6 +76,8 @@ typedef struct s_cmd
   char const *str;
   t_cmd_handler func;
 } t_cmd;
+
+int cmd_quit(t_ftp *ftp, char *cmd);
 
 int cmd_run(t_ftp *ftp, char *cmd);
 
@@ -91,7 +93,7 @@ int	server_send(int sockfd, char *str);
 ** FTP server
 */
 
-int	ftp_send(t_ftp *ftp, int code, char *str);
+int	ftp_send(t_ftp *ftp, t_code code, char *str);
 int	ftp_accept(t_server *server);
 
 

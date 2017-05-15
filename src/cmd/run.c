@@ -5,25 +5,16 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Mon May 15 17:42:41 2017 arnaud.alies
+** Last update Mon May 15 18:24:44 2017 arnaud.alies
 */
 
 #include <string.h>
 #include "server.h"
 
-int	cmd_quit(t_ftp *ftp, char *cmd)
-{
-  (void)cmd;
-  ftp_send(ftp, 221, "Goodbye.");
-  ftp->running = false;
-  return (0);
-}
-
 t_cmd cmds[] = {
-  {"quit", &cmd_quit},
+  DEF_CMD(quit),
   {NULL, NULL}
 };
-
 
 int	cmd_run(t_ftp *ftp, char *cmd)
 {
