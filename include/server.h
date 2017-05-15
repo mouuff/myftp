@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Mon May 15 18:59:58 2017 arnaud.alies
+** Last update Mon May 15 19:03:16 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 //#include <linux/limits.h>
+#include "my.h"
 
 #define MAX_CLIENTS (42)
 #define BUFF_SIZE (1024)
@@ -60,12 +61,6 @@ typedef struct s_ftp
   bool logged;
   bool running;
 } t_ftp;
-
-/*
-** My
-*/
-
-void    *my_malloc(size_t size);
 
 /*
 ** Command

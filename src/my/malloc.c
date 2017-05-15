@@ -5,10 +5,11 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Mon May 15 18:58:11 2017 arnaud.alies
-** Last update Mon May 15 18:58:50 2017 arnaud.alies
+** Last update Mon May 15 19:08:02 2017 arnaud.alies
 */
 
 #include <stdlib.h>
+#include <string.h>
 
 void    *my_malloc(size_t size)
 {
@@ -17,5 +18,6 @@ void    *my_malloc(size_t size)
   res = malloc(size);
   if (res == NULL)
     exit(1);
+  memset(res, 0, size);
   return (res);
 }
