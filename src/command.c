@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Sun May 14 18:09:33 2017 arnaud.alies
+** Last update Mon May 15 17:42:41 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -14,7 +14,7 @@
 int	cmd_quit(t_ftp *ftp, char *cmd)
 {
   (void)cmd;
-  server_send(ftp->client->fd, "221 Goodbye.");
+  ftp_send(ftp, 221, "Goodbye.");
   ftp->running = false;
   return (0);
 }

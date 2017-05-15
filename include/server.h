@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Sun May 14 18:25:45 2017 arnaud.alies
+** Last update Mon May 15 17:43:25 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -21,7 +21,7 @@
 //#include <linux/limits.h>
 
 #define MAX_CLIENTS (42)
-#define BUFF_SIZE (256)
+#define BUFF_SIZE (1024)
 
 typedef struct s_server
 {
@@ -38,6 +38,7 @@ typedef struct s_client
   socklen_t addrlen;
 } t_client;
 
+/*
 typedef enum e_code
   {
     FTP_RDY = 220,
@@ -51,6 +52,7 @@ typedef enum e_code
     FTP_NEED_PASS = 331,
     FTP_NEED_ACC = 332
   } t_code;
+*/
 
 typedef struct s_ftp
 {
@@ -89,6 +91,7 @@ int	server_send(int sockfd, char *str);
 ** FTP server
 */
 
+int	ftp_send(t_ftp *ftp, int code, char *str);
 int	ftp_accept(t_server *server);
 
 
