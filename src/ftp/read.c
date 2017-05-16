@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Tue May 16 14:37:30 2017 arnaud.alies
-** Last update Tue May 16 18:54:23 2017 arnaud.alies
+** Last update Tue May 16 18:58:33 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -18,8 +18,7 @@ int     ftp_read(t_ftp *ftp, char *buff, size_t size)
 
   if ((r = get_next_crlf(ftp->client->fd)) == NULL)
     return (1);
-  memset(buff, 0, size);
-  strncpy(buff, r, size - 1);
+  strncpy(buff, r, size);
   free(r);
   return (0);
 }

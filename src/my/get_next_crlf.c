@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Dec 17 13:44:58 2015 Arnaud Alies
-** Last update Tue May 16 18:52:41 2017 arnaud.alies
+** Last update Tue May 16 18:59:18 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -40,5 +40,4 @@ char	*get_next_crlf(int fd)
 	  return (buff);
 	}
     }
-  return (NULL);
 }
