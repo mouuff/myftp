@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Tue May 16 15:33:40 2017 arnaud.alies
+** Last update Tue May 16 16:32:14 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -22,11 +22,12 @@ static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
   return (ftp_send(ftp, FTP_RDY, "(myFTP)"));
 }
 
-static int	ftp_server(t_server *server, t_client *client)
+static int	ftp_server(t_server *server, t_client *client, char *home)
 {
   char		buff[BUFF_SIZE + 1];
   t_ftp		ftp;
 
+  chdir(home);
   if (ftp_init(&ftp, server, client))
     return (1);
   while (ftp.running)
@@ -39,7 +40,7 @@ static int	ftp_server(t_server *server, t_client *client)
   return (0);
 }
 
-int             ftp_accept(t_server *server)
+int             ftp_accept(t_server *server, char *home)
 {
   t_client      client;
   pid_t         pid;
@@ -50,7 +51,7 @@ int             ftp_accept(t_server *server)
     return (1);
   if (pid == 0)
     {
-      ftp_server(server, &client);
+      ftp_server(server, &client, home);
       printf("Closing connection\n");
       exit(0);
     }

@@ -5,9 +5,10 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Tue May 16 10:43:30 2017 arnaud.alies
+** Last update Tue May 16 16:33:30 2017 arnaud.alies
 */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <signal.h>
 #include "server.h"
@@ -34,12 +35,19 @@ void	test()
   my_free_str_args(args);
 }
 
-int		main()
+int		main(int ac, char **av)
 {
   t_server	server;
   int		port;
+  char		*home;
 
-  port = 4042;
+  if (ac != 3)
+    {
+      fprintf(stderr, "Usage : ./server port path\n");
+      return (1);
+    }
+  port = atoi(av[1]);
+  home = av[2];
   signal(SIGINT, &sigint);
   atexit(clean);  
   if (server_init(&server, port))
@@ -47,7 +55,7 @@ int		main()
   printf("Server listenning on: %d\n", port);
   while (42)
     {
-      if (ftp_accept(&server))
+      if (ftp_accept(&server, home))
 	return (1);
     }
   return (0);
