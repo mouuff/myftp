@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Tue May 16 16:15:16 2017 arnaud.alies
+** Last update Tue May 16 16:25:53 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -22,6 +22,7 @@ static t_cmd g_logged_cmds[] = {
   DEF_CMD(pwd),
   DEF_CMD(cdup),
   DEF_CMD(noop),
+  DEF_CMD(help),
   {NULL, NULL}
 };
 
