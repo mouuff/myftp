@@ -5,13 +5,13 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Tue May 16 15:05:44 2017 arnaud.alies
+** Last update Tue May 16 15:39:33 2017 arnaud.alies
 */
 
 #include <string.h>
 #include "server.h"
 
-static t_cmd g_unlogged_cmds[] = {
+static t_cmd g_cmds[] = {
   DEF_CMD(quit),
   DEF_CMD(user),
   DEF_CMD(pass),
@@ -20,6 +20,7 @@ static t_cmd g_unlogged_cmds[] = {
 
 static t_cmd g_logged_cmds[] = {
   DEF_CMD(pwd),
+  DEF_CMD(cdup),
   {NULL, NULL}
 };
 
@@ -66,7 +67,7 @@ int		cmd_run(t_ftp *ftp, char *str)
 
   args = my_str_args(str);
   run = false;
-  if (cmd_run_cmds(ftp, args, g_unlogged_cmds, &run))
+  if (cmd_run_cmds(ftp, args, g_cmds, &run))
     {
       my_free_str_args(args);
       return (1);
