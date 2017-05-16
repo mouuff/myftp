@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Mon May 15 19:35:41 2017 arnaud.alies
+## Last update Tue May 16 09:46:32 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -33,6 +33,8 @@ SRCS	=	$(SRC)main.c \
 		$(SRC_CMD)run.c \
 		$(SRC_CMD)user.c \
 		$(SRC_MY)malloc.c \
+		$(SRC_MY)strdup.c \
+		$(SRC_MY)str_args.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
