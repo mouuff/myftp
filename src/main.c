@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Tue May 16 16:33:30 2017 arnaud.alies
+** Last update Tue May 16 18:03:25 2017 arnaud.alies
 */
 
 #include <stdlib.h>
@@ -21,18 +21,13 @@ void	sigint(int sig)
 
 void	test()
 {
-  t_args *args;
-  int	x;
+  char	*lol;
 
-  x = 0;
-  args = my_str_args("s s  ssss     ");
-
-  while (x < args->ac)
+  while ((lol = get_next_crlf(0)) != NULL)
     {
-      printf(">%s<\n", args->av[x]);
-      x += 1;
+      printf("%s\n", lol);
     }
-  my_free_str_args(args);
+  
 }
 
 int		main(int ac, char **av)
@@ -41,6 +36,7 @@ int		main(int ac, char **av)
   int		port;
   char		*home;
 
+  test();
   if (ac != 3)
     {
       fprintf(stderr, "Usage : ./server port path\n");
