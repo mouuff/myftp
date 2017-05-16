@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Tue May 16 11:04:12 2017 arnaud.alies
+** Last update Tue May 16 13:33:07 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -14,10 +14,12 @@
 static t_cmd g_unlogged_cmds[] = {
   DEF_CMD(quit),
   DEF_CMD(user),
+  DEF_CMD(pass),
   {NULL, NULL}
 };
 
 static t_cmd g_logged_cmds[] = {
+  DEF_CMD(pwd),
   {NULL, NULL}
 };
 
