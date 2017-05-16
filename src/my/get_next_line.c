@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Dec 17 13:44:58 2015 Arnaud Alies
-** Last update Tue May 16 18:41:40 2017 arnaud.alies
+** Last update Tue May 16 18:52:41 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -35,7 +35,10 @@ char	*get_next_crlf(int fd)
       buff[size + 1] = '\0';
       size += 1;
       if (size > 1 && buff[size - 2] == '\r' && buff[size - 1] == '\n')
-	return (buff);
+	{
+	  buff[size - 2] = '\0';
+	  return (buff);
+	}
     }
   return (NULL);
 }

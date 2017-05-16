@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Tue May 16 18:03:25 2017 arnaud.alies
+** Last update Tue May 16 18:51:12 2017 arnaud.alies
 */
 
 #include <stdlib.h>
@@ -36,7 +36,6 @@ int		main(int ac, char **av)
   int		port;
   char		*home;
 
-  test();
   if (ac != 3)
     {
       fprintf(stderr, "Usage : ./server port path\n");
