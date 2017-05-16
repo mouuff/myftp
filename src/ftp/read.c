@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Tue May 16 14:37:30 2017 arnaud.alies
-** Last update Tue May 16 14:37:36 2017 arnaud.alies
+** Last update Tue May 16 17:37:56 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -16,7 +16,6 @@ int     ftp_read(t_ftp *ftp, char *buff, size_t size)
 {
   int   len;
 
-  memset(buff, '\0', size);
   if (read(ftp->client->fd, buff, size - 1) < 1)
     return (1);
   len = strlen(buff);
