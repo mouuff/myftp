@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Tue May 16 09:17:03 2017 arnaud.alies
-** Last update Tue May 16 10:16:06 2017 arnaud.alies
+** Last update Tue May 16 10:42:34 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -50,11 +50,26 @@ t_args		*my_str_args(char const *str)
   args->ac = char_count(copy, ' ') + 1;
   args->av = my_malloc(sizeof(char*) * (args->ac + 1));
   buff = strtok(copy, " ");
-  args_add(args, buff, &pos);
   while (buff != NULL)
     {
-      buff = strtok(NULL, " ");
       args_add(args, buff, &pos);
+      buff = strtok(NULL, " ");
     }
+  args->ac = pos;
+  free(copy);
   return (args);
+}
+
+void		my_free_str_args(t_args *args)
+{
+  int		x;
+
+  x = 0;
+  while (x < args->ac)
+    {
+      free((args->av)[x]);
+      x += 1;
+    }
+  free(args->av);
+  free(args);
 }

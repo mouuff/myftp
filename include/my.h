@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Mon May 15 19:01:51 2017 arnaud.alies
-** Last update Tue May 16 09:44:31 2017 arnaud.alies
+** Last update Tue May 16 10:30:51 2017 arnaud.alies
 */
 
 #ifndef MY_H_
@@ -23,5 +23,6 @@ void *my_malloc(size_t size);
 char *my_strdup(const char *str);
 
 t_args *my_str_args(char const *str);
+void my_free_str_args(t_args *args);
 
 #endif

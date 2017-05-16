@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Sun May 14 16:08:07 2017 arnaud.alies
+** Last update Tue May 16 10:43:30 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -16,6 +16,22 @@ void	sigint(int sig)
 {
   (void)sig;
   exit(0);
+}
+
+void	test()
+{
+  t_args *args;
+  int	x;
+
+  x = 0;
+  args = my_str_args("s s  ssss     ");
+
+  while (x < args->ac)
+    {
+      printf(">%s<\n", args->av[x]);
+      x += 1;
+    }
+  my_free_str_args(args);
 }
 
 int		main()
