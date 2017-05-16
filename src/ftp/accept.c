@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Tue May 16 14:37:42 2017 arnaud.alies
+** Last update Tue May 16 15:33:40 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -16,7 +16,6 @@ static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
 {
   ftp->server = server;
   ftp->client = client;
-  ftp->root = getcwd(NULL, 0);
   ftp->logged = false;
   ftp->anonymous = false;
   ftp->running = true;

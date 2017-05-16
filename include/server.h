@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Tue May 16 15:01:12 2017 arnaud.alies
+** Last update Tue May 16 15:34:12 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -59,7 +59,6 @@ typedef struct s_ftp
 {
   t_server *server;
   t_client *client;
-  char *root;
   bool anonymous;
   bool logged;
   bool running;
