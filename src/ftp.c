@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Mon May 15 18:33:55 2017 arnaud.alies
+** Last update Tue May 16 13:24:26 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -21,6 +21,22 @@ int	ftp_send(t_ftp *ftp, t_code code, char *str)
   else
     snprintf(buff, BUFF_SIZE, "%3d %s", code, str);
   return (server_send(ftp->client->fd, buff));
+}
+
+int	ftp_read(t_ftp *ftp, char *buff, size_t size)
+{
+  int	len;
+
+  memset(buff, '\0', size);
+  if (read(ftp->client->fd, buff, size - 1) < 1)
+    return (1);
+  len = strlen(buff);
+  if (len > 0 && buff[len - 1] == '\n')
+    buff[len - 1] = '\0';
+  len = strlen(buff);
+  if (len > 0 && buff[len - 1] == '\r')
+    buff[len - 1] = '\0';
+  return (0);
 }
 
 static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
@@ -41,11 +57,8 @@ static int	ftp_server(t_server *server, t_client *client)
     return (1);
   while (ftp.running)
     {
-      memset(buff, '\0', BUFF_SIZE + 1);
-      if (read(client->fd, buff, BUFF_SIZE) < 1)
-        return (1);
-      if (strlen(buff) > 0 && buff[strlen(buff) - 1] == '\n')
-	buff[strlen(buff) - 1] = '\0';
+      if (ftp_read(&ftp, buff, BUFF_SIZE))
+	return (1);
       if (cmd_run(&ftp, buff))
         return (1);
     }
