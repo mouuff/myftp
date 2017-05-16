@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Tue May 16 13:42:26 2017 arnaud.alies
+## Last update Tue May 16 14:39:08 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -22,18 +22,20 @@ LDFLAGS	+=
 SRC	=	./src/
 
 SRC_CMD	=	$(SRC)cmd/
-
 SRC_MY	=	$(SRC)my/
+SRC_FTP	=	$(SRC)ftp/
 
 SRCS	=	$(SRC)main.c \
 		$(SRC)server.c \
-		$(SRC)ftp.c \
 		$(SRC)clean.c \
 		$(SRC_CMD)quit.c \
 		$(SRC_CMD)run.c \
 		$(SRC_CMD)user.c \
 		$(SRC_CMD)pass.c \
 		$(SRC_CMD)pwd.c \
+		$(SRC_FTP)accept.c \
+		$(SRC_FTP)send.c \
+		$(SRC_FTP)read.c \
 		$(SRC_MY)malloc.c \
 		$(SRC_MY)strdup.c \
 		$(SRC_MY)str_args.c \

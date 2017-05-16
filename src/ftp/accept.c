@@ -5,44 +5,18 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Tue May 16 13:34:37 2017 arnaud.alies
+** Last update Tue May 16 14:37:42 2017 arnaud.alies
 */
 
 #include <stdio.h>
 #include <string.h>
 #include "server.h"
 
-int	ftp_send(t_ftp *ftp, t_code code, char *str)
-{
-  char	buff[BUFF_SIZE];
-
-  if (code <= 0 || code > 999)
-    snprintf(buff, BUFF_SIZE, "%s", str);
-  else
-    snprintf(buff, BUFF_SIZE, "%3d %s", code, str);
-  return (server_send(ftp->client->fd, buff));
-}
-
-int	ftp_read(t_ftp *ftp, char *buff, size_t size)
-{
-  int	len;
-
-  memset(buff, '\0', size);
-  if (read(ftp->client->fd, buff, size - 1) < 1)
-    return (1);
-  len = strlen(buff);
-  if (len > 0 && buff[len - 1] == '\n')
-    buff[len - 1] = '\0';
-  len = strlen(buff);
-  if (len > 0 && buff[len - 1] == '\r')
-    buff[len - 1] = '\0';
-  return (0);
-}
-
 static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
 {
   ftp->server = server;
   ftp->client = client;
+  ftp->root = getcwd(NULL, 0);
   ftp->logged = false;
   ftp->anonymous = false;
   ftp->running = true;

@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Tue May 16 13:43:39 2017 arnaud.alies
+** Last update Tue May 16 14:17:36 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -18,7 +18,6 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <stdlib.h>
-//#include <linux/limits.h>
 #include "my.h"
 
 #define MAX_CLIENTS (42)
@@ -51,6 +50,7 @@ typedef enum e_code
     FTP_CREATED = 257,
     FTP_NEED_PASS = 331,
     FTP_NEED_ACC = 332,
+    FTP_PWD = 257,
     FTP_NOT_LOGGED = 530
   } t_code;
 
@@ -58,6 +58,7 @@ typedef struct s_ftp
 {
   t_server *server;
   t_client *client;
+  char *root;
   bool anonymous;
   bool logged;
   bool running;
