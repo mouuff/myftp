@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Tue May 16 13:34:24 2017 arnaud.alies
+** Last update Tue May 16 13:43:39 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -78,12 +78,10 @@ typedef struct s_cmd
 } t_cmd;
 
 int cmd_user(t_ftp *ftp, t_args *args);
-int cmd_quit(t_ftp *ftp, t_args *args);
 int cmd_pass(t_ftp *ftp, t_args *args);
+int cmd_quit(t_ftp *ftp, t_args *args);
 
 int cmd_pwd(t_ftp *ftp, t_args *args);
-
-
 
 int cmd_run(t_ftp *ftp, char *cmd);
 
