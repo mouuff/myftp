@@ -5,12 +5,12 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Mon May 15 18:43:48 2017 arnaud.alies
-** Last update Mon May 15 18:57:44 2017 arnaud.alies
+** Last update Tue May 16 11:00:54 2017 arnaud.alies
 */
 
 #include "server.h"
 
-int	cmd_user(t_ftp *ftp, char *cmd)
+int	cmd_user(t_ftp *ftp, t_args *args)
 {
   
   return (0);

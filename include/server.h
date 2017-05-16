@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Mon May 15 19:03:16 2017 arnaud.alies
+** Last update Tue May 16 11:01:29 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -68,7 +68,7 @@ typedef struct s_ftp
 
 #define DEF_CMD(cmd) {#cmd, cmd_##cmd}
 
-typedef int(*t_cmd_handler)(t_ftp *ftp, char *cmd);
+typedef int(*t_cmd_handler)(t_ftp *ftp, t_args *args);
 
 typedef struct s_cmd
 {
@@ -76,8 +76,8 @@ typedef struct s_cmd
   t_cmd_handler func;
 } t_cmd;
 
-int cmd_user(t_ftp *ftp, char *cmd);
-int cmd_quit(t_ftp *ftp, char *cmd);
+int cmd_user(t_ftp *ftp, t_args *args);
+int cmd_quit(t_ftp *ftp, t_args *args);
 
 int cmd_run(t_ftp *ftp, char *cmd);
 

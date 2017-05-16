@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Tue May 16 09:14:41 2017 arnaud.alies
+** Last update Tue May 16 11:04:12 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -21,42 +21,49 @@ static t_cmd g_logged_cmds[] = {
   {NULL, NULL}
 };
 
-static int	cmd_run_cmds(t_ftp *ftp, char *cmd, t_cmd *cmds, bool *run)
+static int	cmd_run_cmds(t_ftp *ftp, t_args *args, t_cmd *cmds, bool *run)
 {
-  int		len;
   int		x;
 
-  len = strlen(cmd);
-  if (len <= 0)
+  if (args->ac == 0)
     return (0);
   x = 0;
   while (cmds[x].str != NULL)
     {
-      if (strncasecmp(cmds[x].str, cmd, len) == 0)
+      if (strcasecmp(cmds[x].str, (args->av)[0]) == 0)
 	{
 	  *run = true;
-	  return (cmds[x].func(ftp, cmd));
+	  return (cmds[x].func(ftp, args));
 	}
       x += 1;
     }
   return (0);
 }
 
-int	cmd_run(t_ftp *ftp, char *str)
+int		cmd_run(t_ftp *ftp, char *str)
 {
-  bool	run;
+  t_args	*args;
+  bool		run;
 
+  args = my_str_args(str);
   run = false;
-  if (cmd_run_cmds(ftp, str, g_unlogged_cmds, &run))
-    return (1);
+  if (cmd_run_cmds(ftp, args, g_unlogged_cmds, &run))
+    {
+      my_free_str_args(args);
+      return (1);
+    }
   if (ftp->logged && run == false)
     {
-      if (cmd_run_cmds(ftp, str, g_logged_cmds, &run))
-	return (1);
+      if (cmd_run_cmds(ftp, args, g_logged_cmds, &run))
+	{
+	  my_free_str_args(args);
+	  return (1);
+	}
     }
   if (run == false)
     {
       //unknown cmd
     }
+  my_free_str_args(args);
   return (0);
 }
