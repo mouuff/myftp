@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Tue May 16 14:17:36 2017 arnaud.alies
+** Last update Tue May 16 15:01:12 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -51,7 +51,8 @@ typedef enum e_code
     FTP_NEED_PASS = 331,
     FTP_NEED_ACC = 332,
     FTP_PWD = 257,
-    FTP_NOT_LOGGED = 530
+    FTP_NOT_LOGGED = 530,
+    FTP_SYNTAX = 500
   } t_code;
 
 typedef struct s_ftp
