@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 11:11:48 2017 arnaud.alies
-** Last update Mon May 15 19:00:14 2017 arnaud.alies
+** Last update Tue May 16 16:34:49 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -58,7 +58,7 @@ void		clean_close_fd(int fd)
 void		clean()
 {
   if (errno != 0)
-    printf("Error: %s\n", strerror(errno));
+    fprintf(stderr, "Error: %s\n", strerror(errno));
   while (g_size > 0)
     {
       clean_close_fd(g_fds[g_size - 1]);
