@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Mon May 15 19:01:51 2017 arnaud.alies
-** Last update Tue May 16 16:51:59 2017 arnaud.alies
+** Last update Tue May 16 17:43:47 2017 arnaud.alies
 */
 
 #ifndef MY_H_
@@ -24,6 +24,7 @@ typedef struct s_args
 } t_args;
 
 void *my_malloc(size_t size);
+void *my_realloc(void *ptr, size_t size);
 char *my_strdup(const char *str);
 
 t_args *my_str_args(char const *str);
