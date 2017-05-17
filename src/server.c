@@ -5,14 +5,14 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Wed May 17 14:55:55 2017 arnaud.alies
+** Last update Wed May 17 22:22:23 2017 arnaud.alies
 */
 
 #include <unistd.h>
 #include <string.h>
 #include "server.h"
 
-int     server_init(t_server *server, int port)
+int     server_init(t_server *server, int port, bool reuse)
 {
   int	enable;
 
@@ -27,7 +27,7 @@ int     server_init(t_server *server, int port)
     return (1);
   clean_add_fd(server->fd);
   enable = 1;
-  if (setsockopt(server->fd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0)
+  if (reuse && setsockopt(server->fd, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(int)) < 0)
     return (1);
   if ((bind((server->fd),
             (const struct sockaddr*)&(server->addr),

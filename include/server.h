@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 17:14:03 2017 arnaud.alies
+** Last update Wed May 17 22:21:50 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -20,6 +20,7 @@
 #include <stdlib.h>
 #include "my.h"
 
+#define GETBYTE(var, x) (((var) >> ((x) * 8)) & 0xff)
 #define MAX_CLIENTS (42)
 #define BUFF_SIZE (2048)
 
@@ -106,7 +107,7 @@ int cmd_run(t_ftp *ftp, char *cmd);
 ** Server
 */
 
-int     server_init(t_server *server, int port);
+int     server_init(t_server *server, int port, bool reuse);
 int     server_accept(t_client *client, t_server const *server);
 int	server_send(int sockfd, char *str);
 

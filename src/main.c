@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Tue May 16 18:51:12 2017 arnaud.alies
+** Last update Wed May 17 22:22:13 2017 arnaud.alies
 */
 
 #include <stdlib.h>
@@ -45,7 +45,7 @@ int		main(int ac, char **av)
   home = av[2];
   signal(SIGINT, &sigint);
   atexit(clean);  
-  if (server_init(&server, port))
+  if (server_init(&server, port, true))
     return (1);
   printf("Server listenning on: %d\n", port);
   while (42)
