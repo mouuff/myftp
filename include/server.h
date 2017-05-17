@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 10:42:33 2017 arnaud.alies
+** Last update Wed May 17 11:14:10 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -21,7 +21,7 @@
 #include "my.h"
 
 #define MAX_CLIENTS (42)
-#define BUFF_SIZE (1024)
+#define BUFF_SIZE (2048)
 
 typedef struct s_server
 {
@@ -89,6 +89,8 @@ int cmd_cdup(t_ftp *ftp, t_args *args);
 int cmd_noop(t_ftp *ftp, t_args *args);
 int cmd_help(t_ftp *ftp, t_args *args);
 int cmd_cwd(t_ftp *ftp, t_args *args);
+int cmd_pasv(t_ftp *ftp, t_args *args);
+int cmd_port(t_ftp *ftp, t_args *args);
 
 int cmd_run(t_ftp *ftp, char *cmd);
 
