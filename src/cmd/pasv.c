@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 11:11:14 2017 arnaud.alies
-** Last update Wed May 17 22:13:59 2017 arnaud.alies
+** Last update Wed May 17 22:32:35 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -31,6 +31,7 @@ int     		cmd_pasv(t_ftp *ftp, t_args *args)
       ftp_send(ftp, FTP_FAIL, "Could not get server ip.");
       return (0);
     }
+  ftp->mode = M_PASV;
   snprintf(buff, BUFF_SIZE, "Entering Passive Mode (%d,%d,%d,%d,%d,%d).",
 	  GETBYTE(addr.sin_addr.s_addr, 0), GETBYTE(addr.sin_addr.s_addr, 1),
 	  GETBYTE(addr.sin_addr.s_addr, 2), GETBYTE(addr.sin_addr.s_addr, 3),
