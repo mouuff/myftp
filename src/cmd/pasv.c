@@ -5,24 +5,32 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 11:11:14 2017 arnaud.alies
-** Last update Wed May 17 17:13:21 2017 arnaud.alies
+** Last update Wed May 17 18:12:00 2017 arnaud.alies
 */
 
 #include "server.h"
 
-int     cmd_pasv(t_ftp *ftp, t_args *args)
+int     		cmd_pasv(t_ftp *ftp, t_args *args)
 {
-  char	buff[50];
-  int	port;
+  char			buff[500];
+  char			ip[20];
+  struct sockaddr_in	addr;
+  socklen_t		len;
+  int			port;
 
-  (void)ftp;
-  (void)args;
   if (ftp_passive(&port))
     {
-      ftp_send(ftp, FTP_NOCODE, "FAIL");
+      ftp_send(ftp, FTP_FAIL, "Could not create server.");
       return (0);
     }
-  sprintf(buff, "PORT: %d", port);
+  len = sizeof(addr);
+  if (getsockname(ftp->client->fd, (struct sockaddr*)&(addr), &len) < 0)
+    {
+      ftp_send(ftp, FTP_FAIL, "Could not get server ip.");
+      return (0);
+    }
+  strcpy(ip, inet_ntoa(addr.sin_addr));
+  sprintf(buff, "PORT: %s %d", ip, port);
   ftp_send(ftp, FTP_NOCODE, buff);
   return (0);
 }
