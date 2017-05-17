@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Tue May 16 16:31:27 2017 arnaud.alies
+** Last update Wed May 17 10:15:34 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -40,6 +40,7 @@ typedef struct s_client
 
 typedef enum e_code
   {
+    FTP_NOCODE = 0,
     FTP_RDY = 220,
     FTP_CLOSING = 221,
     FTP_OK = 200,
