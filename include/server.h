@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 23:23:24 2017 arnaud.alies
+** Last update Wed May 17 23:38:06 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -53,6 +53,7 @@ typedef enum e_code
     FTP_CLOSING = 221,
     FTP_OK = 200,
     FTP_HELP = 214,
+    FTP_CLOSING_DATA = 226,
     FTP_PASV = 227,
     FTP_LOGGED = 230,
     FTP_COMPLETED = 250,
@@ -62,7 +63,8 @@ typedef enum e_code
     FTP_PWD = 257,
     FTP_SYNTAX = 500,
     FTP_NOT_LOGGED = 530,
-    FTP_FAIL = 550
+    FTP_FAIL = 550,
+    FTP_CANT_DATA = 425
   } t_code;
 
 typedef struct s_ftp
@@ -100,6 +102,7 @@ int cmd_help(t_ftp *ftp, t_args *args);
 int cmd_cwd(t_ftp *ftp, t_args *args);
 int cmd_pasv(t_ftp *ftp, t_args *args);
 int cmd_port(t_ftp *ftp, t_args *args);
+int cmd_list(t_ftp *ftp, t_args *args);
 
 int cmd_run(t_ftp *ftp, char *cmd);
 
@@ -117,6 +120,7 @@ int	server_send(int sockfd, char *str);
 
 int	ftp_passive(int *port);
 int     ftp_passive_fd();
+int	ftp_mode_fd(t_ftp *ftp);
 
 int     ftp_read(t_ftp *ftp, char *buff, size_t size);
 int	ftp_send(t_ftp *ftp, t_code code, char *str);
