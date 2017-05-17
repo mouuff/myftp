@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Wed May 17 11:12:39 2017 arnaud.alies
+## Last update Wed May 17 14:23:27 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -17,7 +17,7 @@ INC	=	./include/
 CFLAGS	=	-I$(INC) \
 		-Wall -Wextra
 
-LDFLAGS	+=
+LDFLAGS	+=	-lpthread
 
 SRC	=	./src/
 
