@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 10:15:34 2017 arnaud.alies
+** Last update Wed May 17 10:42:33 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -88,6 +88,7 @@ int cmd_pwd(t_ftp *ftp, t_args *args);
 int cmd_cdup(t_ftp *ftp, t_args *args);
 int cmd_noop(t_ftp *ftp, t_args *args);
 int cmd_help(t_ftp *ftp, t_args *args);
+int cmd_cwd(t_ftp *ftp, t_args *args);
 
 int cmd_run(t_ftp *ftp, char *cmd);
 
