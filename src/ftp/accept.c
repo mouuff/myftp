@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Tue May 16 16:32:14 2017 arnaud.alies
+** Last update Wed May 17 17:04:27 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -19,6 +19,7 @@ static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
   ftp->logged = false;
   ftp->anonymous = false;
   ftp->running = true;
+  ftp->mode = M_NO;
   return (ftp_send(ftp, FTP_RDY, "(myFTP)"));
 }
 

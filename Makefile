@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Wed May 17 14:23:27 2017 arnaud.alies
+## Last update Wed May 17 15:08:00 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -17,7 +17,7 @@ INC	=	./include/
 CFLAGS	=	-I$(INC) \
 		-Wall -Wextra
 
-LDFLAGS	+=	-lpthread
+LDFLAGS	+=
 
 SRC	=	./src/
 
@@ -42,6 +42,7 @@ SRCS	=	$(SRC)main.c \
 		$(SRC_FTP)accept.c \
 		$(SRC_FTP)send.c \
 		$(SRC_FTP)read.c \
+		$(SRC_FTP)passive.c \
 		$(SRC_MY)malloc.c \
 		$(SRC_MY)realloc.c \
 		$(SRC_MY)strdup.c \

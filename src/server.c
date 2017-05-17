@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Wed May 17 14:25:07 2017 arnaud.alies
+** Last update Wed May 17 14:55:55 2017 arnaud.alies
 */
 
 #include <unistd.h>
@@ -22,7 +22,8 @@ int     server_init(t_server *server, int port)
   (server->addr).sin_family = AF_INET;
   (server->addr).sin_port = htons((server->port));
   (server->addr).sin_addr.s_addr = INADDR_ANY;
-  if (((server->fd) = socket(AF_INET, SOCK_STREAM, (server->proto)->p_proto)) < 0)
+  if (((server->fd) = socket(AF_INET, SOCK_STREAM,
+			     (server->proto)->p_proto)) < 0)
     return (1);
   clean_add_fd(server->fd);
   enable = 1;

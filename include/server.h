@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 11:14:10 2017 arnaud.alies
+** Last update Wed May 17 17:14:03 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -38,6 +38,13 @@ typedef struct s_client
   socklen_t addrlen;
 } t_client;
 
+typedef enum e_mode
+  {
+    M_PASV = 1,
+    M_PORT,
+    M_NO
+  } t_mode;
+
 typedef enum e_code
   {
     FTP_NOCODE = 0,
@@ -61,6 +68,7 @@ typedef struct s_ftp
 {
   t_server *server;
   t_client *client;
+  t_mode mode;
   bool anonymous;
   bool logged;
   bool running;
@@ -105,6 +113,9 @@ int	server_send(int sockfd, char *str);
 /*
 ** FTP server
 */
+
+int	ftp_passive(int *port);
+int     ftp_passive_fd(t_server *server, t_client *client);
 
 int     ftp_read(t_ftp *ftp, char *buff, size_t size);
 int	ftp_send(t_ftp *ftp, t_code code, char *str);
