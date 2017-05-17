@@ -5,9 +5,11 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 11:11:14 2017 arnaud.alies
-** Last update Wed May 17 18:12:00 2017 arnaud.alies
+** Last update Wed May 17 18:38:11 2017 arnaud.alies
 */
 
+#include <string.h>
+#include <stdio.h>
 #include "server.h"
 
 int     		cmd_pasv(t_ftp *ftp, t_args *args)
