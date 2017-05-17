@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Tue May 16 18:51:12 2017 arnaud.alies
+** Last update Wed May 17 11:34:57 2017 arnaud.alies
 */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@ void	test()
 
 int		main(int ac, char **av)
 {
-  t_server	server;
+  t_sock	server;
   int		port;
   char		*home;
 

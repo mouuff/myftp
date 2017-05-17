@@ -5,14 +5,14 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:36:59 2017 arnaud.alies
-** Last update Tue May 16 16:32:14 2017 arnaud.alies
+** Last update Wed May 17 11:35:27 2017 arnaud.alies
 */
 
 #include <stdio.h>
 #include <string.h>
 #include "server.h"
 
-static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
+static int	ftp_init(t_ftp *ftp, t_sock *server, t_client *client)
 {
   ftp->server = server;
   ftp->client = client;
@@ -22,7 +22,7 @@ static int	ftp_init(t_ftp *ftp, t_server *server, t_client *client)
   return (ftp_send(ftp, FTP_RDY, "(myFTP)"));
 }
 
-static int	ftp_server(t_server *server, t_client *client, char *home)
+static int	ftp_server(t_sock *server, t_client *client, char *home)
 {
   char		buff[BUFF_SIZE + 1];
   t_ftp		ftp;
@@ -40,7 +40,7 @@ static int	ftp_server(t_server *server, t_client *client, char *home)
   return (0);
 }
 
-int             ftp_accept(t_server *server, char *home)
+int             ftp_accept(t_sock *server, char *home)
 {
   t_client      client;
   pid_t         pid;

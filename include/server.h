@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 11:14:10 2017 arnaud.alies
+** Last update Wed May 17 11:34:40 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -23,13 +23,13 @@
 #define MAX_CLIENTS (42)
 #define BUFF_SIZE (2048)
 
-typedef struct s_server
+typedef struct s_sock
 {
   struct protoent *proto;
   struct sockaddr_in addr;
   int fd;
   int port;
-} t_server;
+} t_sock;
 
 typedef struct s_client
 {
@@ -59,7 +59,7 @@ typedef enum e_code
 
 typedef struct s_ftp
 {
-  t_server *server;
+  t_sock *server;
   t_client *client;
   bool anonymous;
   bool logged;
@@ -98,8 +98,8 @@ int cmd_run(t_ftp *ftp, char *cmd);
 ** Server
 */
 
-int     server_init(t_server *server, int port);
-int     server_accept(t_client *client, t_server const *server);
+int     server_init(t_sock *server, int port);
+int     server_accept(t_client *client, t_sock const *server);
 int	server_send(int sockfd, char *str);
 
 /*
@@ -108,7 +108,7 @@ int	server_send(int sockfd, char *str);
 
 int     ftp_read(t_ftp *ftp, char *buff, size_t size);
 int	ftp_send(t_ftp *ftp, t_code code, char *str);
-int	ftp_accept(t_server *server, char *home);
+int	ftp_accept(t_sock *server, char *home);
 
 
 /*

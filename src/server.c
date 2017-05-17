@@ -5,14 +5,14 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Mon May 15 17:50:09 2017 arnaud.alies
+** Last update Wed May 17 11:35:07 2017 arnaud.alies
 */
 
 #include <unistd.h>
 #include <string.h>
 #include "server.h"
 
-int     server_init(t_server *server, int port)
+int     server_init(t_sock *server, int port)
 {
   int	enable;
 
@@ -37,7 +37,7 @@ int     server_init(t_server *server, int port)
   return (0);
 }
 
-int     server_accept(t_client *client, t_server const *server)
+int     server_accept(t_client *client, t_sock const *server)
 {
   client->addrlen = sizeof(client->addr);
   if ((client->fd = accept(server->fd,
