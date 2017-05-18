@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 16:25:36 2017 arnaud.alies
-** Last update Thu May 18 18:42:30 2017 arnaud.alies
+** Last update Thu May 18 18:43:16 2017 arnaud.alies
 */
 
 #include <sys/types.h>
@@ -14,10 +14,10 @@
 #include <string.h>
 #include "server.h"
 
-void	send_file(int sockfd, int filefd)
+static void	send_file(int sockfd, int filefd)
 {
-  char	buff[BUFF_SIZE + 1];
-  int	r;
+  char		buff[BUFF_SIZE + 1];
+  int		r;
 
   memset(buff, 0, BUFF_SIZE + 1);
   while ((r = read(filefd, buff, BUFF_SIZE)) > 0)
