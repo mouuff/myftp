@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 23:30:47 2017 arnaud.alies
-** Last update Thu May 18 10:32:21 2017 arnaud.alies
+** Last update Thu May 18 13:47:20 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -49,6 +49,8 @@ int	cmd_list(t_ftp *ftp, t_args *args)
     }
   else
     {
+      if (ftp_send(ftp, FTP_FILEOK, "Here comes the directory listing."))
+	return (1);
       if (args->ac > 1)
 	send_listing(fd, (args->av)[1]);
       else

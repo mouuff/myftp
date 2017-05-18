@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Thu May 18 13:36:56 2017 arnaud.alies
+** Last update Thu May 18 13:46:34 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -50,6 +50,7 @@ typedef enum e_mode
 typedef enum e_code
   {
     FTP_NOCODE = 0,
+    FTP_FILEOK = 150,
     FTP_RDY = 220,
     FTP_CLOSING = 221,
     FTP_OK = 200,
