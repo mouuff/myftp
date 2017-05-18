@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 16:30:04 2017 arnaud.alies
-** Last update Wed May 17 22:22:23 2017 arnaud.alies
+** Last update Thu May 18 10:17:37 2017 arnaud.alies
 */
 
 #include <unistd.h>
@@ -46,17 +46,5 @@ int     server_accept(t_client *client, t_server const *server)
                            &(client->addrlen))) < 0)
     return (1);
   clean_add_fd(client->fd);
-  return (0);
-}
-
-int		server_send(int sockfd, char *str)
-{
-  int		size;
-
-  size = strlen(str);
-  if ((write(sockfd, str, size)) != size)
-    return (1);
-  if (write(sockfd, "\r\n", 2) != 2)
-    return (1);
   return (0);
 }

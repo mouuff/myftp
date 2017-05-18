@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Wed May 17 23:31:50 2017 arnaud.alies
+## Last update Thu May 18 10:18:52 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -28,6 +28,7 @@ SRC_FTP	=	$(SRC)ftp/
 SRCS	=	$(SRC)main.c \
 		$(SRC)server.c \
 		$(SRC)clean.c \
+		$(SRC)sock.c \
 		$(SRC_CMD)quit.c \
 		$(SRC_CMD)run.c \
 		$(SRC_CMD)user.c \

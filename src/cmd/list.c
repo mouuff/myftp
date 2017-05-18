@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 23:30:47 2017 arnaud.alies
-** Last update Wed May 17 23:40:27 2017 arnaud.alies
+** Last update Thu May 18 10:17:59 2017 arnaud.alies
 */
 
 #include "server.h"
@@ -17,7 +17,7 @@ int	cmd_list(t_ftp *ftp, t_args *args)
   fd = ftp_mode_fd(ftp);
   if (fd < 0)
     {
-      if (ftp->mode = M_NO)
+      if (ftp->mode == M_NO)
 	return (ftp_send(ftp, FTP_CANT_DATA, "Use PORT or PASV first."));
       return (ftp_send(ftp, FTP_CANT_DATA, "Can't open data connection."));
     }

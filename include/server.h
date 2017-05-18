@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Wed May 17 23:38:06 2017 arnaud.alies
+** Last update Thu May 18 10:19:11 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -112,7 +112,7 @@ int cmd_run(t_ftp *ftp, char *cmd);
 
 int     server_init(t_server *server, int port, bool reuse);
 int     server_accept(t_client *client, t_server const *server);
-int	server_send(int sockfd, char *str);
+int	sock_send(int sockfd, char *str);
 
 /*
 ** FTP server
