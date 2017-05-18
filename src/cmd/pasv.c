@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Wed May 17 11:11:14 2017 arnaud.alies
-** Last update Wed May 17 22:32:35 2017 arnaud.alies
+** Last update Thu May 18 13:38:35 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -20,16 +20,15 @@ int     		cmd_pasv(t_ftp *ftp, t_args *args)
   int			port;
 
   (void)args;
+  ftp_port(NULL);
   if (ftp_passive(&port))
     {
-      ftp_send(ftp, FTP_FAIL, "Could not create server.");
-      return (0);
+      return (ftp_send(ftp, FTP_FAIL, "Could not create server."));
     }
   len = sizeof(addr);
   if (getsockname(ftp->client->fd, (struct sockaddr*)&(addr), &len) < 0)
     {
-      ftp_send(ftp, FTP_FAIL, "Could not get server ip.");
-      return (0);
+      return (ftp_send(ftp, FTP_FAIL, "Could not get server ip."));
     }
   ftp->mode = M_PASV;
   snprintf(buff, BUFF_SIZE, "Entering Passive Mode (%d,%d,%d,%d,%d,%d).",

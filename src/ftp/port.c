@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 10:35:26 2017 arnaud.alies
-** Last update Thu May 18 12:39:55 2017 arnaud.alies
+** Last update Thu May 18 13:36:34 2017 arnaud.alies
 */
 
 #include "server.h"
@@ -63,7 +63,7 @@ static int		connect_to_server(uint32_t ip, int port)
   return (0);
 }
 
-int		ftp_port(t_ftp *ftp, char *str)
+int		ftp_port(char *str)
 {
   int		port;
   uint32_t	ip;
@@ -76,12 +76,5 @@ int		ftp_port(t_ftp *ftp, char *str)
     return (1);
   if (connect_to_server(ip, port))
     return (1);
-  /*
-  char		buff[BUFF_SIZE];
-  sprintf(buff, "%d.%d.%d.%d : %d",
-	  GETBYTE(ip, 0), GETBYTE(ip, 1),
-	  GETBYTE(ip, 2), GETBYTE(ip, 3), port);
-  return (ftp_send(ftp, FTP_NOCODE, buff));
-  */
   return (0);
 }

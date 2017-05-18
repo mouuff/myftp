@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Thu May 18 11:17:57 2017 arnaud.alies
+** Last update Thu May 18 13:36:56 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -121,7 +121,7 @@ int	sock_send(int sockfd, char *str);
 
 int	ftp_passive(int *port);
 int     ftp_passive_fd();
-int	ftp_port(t_ftp *ftp, char *str);
+int	ftp_port(char *str);
 int     ftp_port_fd();
 
 
