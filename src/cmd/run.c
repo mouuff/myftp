@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Thu May 18 16:42:06 2017 arnaud.alies
+** Last update Thu May 18 18:53:08 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -29,6 +29,7 @@ static t_cmd g_logged_cmds[] = {
   DEF_CMD(list),
   DEF_CMD(dele),
   DEF_CMD(retr),
+  DEF_CMD(stor),
   {NULL, NULL}
 };
 
