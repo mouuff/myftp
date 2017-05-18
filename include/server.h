@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Thu May 18 10:19:11 2017 arnaud.alies
+** Last update Thu May 18 11:17:57 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -21,6 +21,7 @@
 #include "my.h"
 
 #define GETBYTE(var, x) (((var) >> ((x) * 8)) & 0xff)
+#define IARG(args, x) (atoi((args->av)[x]))
 #define MAX_CLIENTS (42)
 #define BUFF_SIZE (2048)
 
@@ -120,6 +121,10 @@ int	sock_send(int sockfd, char *str);
 
 int	ftp_passive(int *port);
 int     ftp_passive_fd();
+int	ftp_port(t_ftp *ftp, char *str);
+int     ftp_port_fd();
+
+
 int	ftp_mode_fd(t_ftp *ftp);
 
 int     ftp_read(t_ftp *ftp, char *buff, size_t size);

@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Wed May 17 23:32:06 2017 arnaud.alies
+** Last update Thu May 18 10:49:18 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -71,7 +71,7 @@ int		cmd_run(t_ftp *ftp, char *str)
   t_args	*args;
   bool		run;
 
-  args = my_str_args(str);
+  args = my_str_args(str, " ");
   run = false;
   if (cmd_run_cmds(ftp, args, g_cmds, &run))
     {

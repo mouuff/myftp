@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Mon May 15 19:01:51 2017 arnaud.alies
-** Last update Tue May 16 17:45:10 2017 arnaud.alies
+** Last update Thu May 18 10:49:05 2017 arnaud.alies
 */
 
 #ifndef MY_H_
@@ -27,7 +27,7 @@ void *my_malloc(size_t size);
 void *my_realloc(void *ptr, size_t size);
 char *my_strdup(const char *str);
 
-t_args *my_str_args(char const *str);
+t_args *my_str_args(char const *str, char const *del);
 void my_free_str_args(t_args *args);
 
 char *get_next_crlf(int fd);

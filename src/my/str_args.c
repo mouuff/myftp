@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Tue May 16 09:17:03 2017 arnaud.alies
-** Last update Tue May 16 10:42:34 2017 arnaud.alies
+** Last update Thu May 18 10:48:33 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -37,7 +37,7 @@ static void	args_add(t_args *args, char const *to_add, int *pos)
     }
 }
 
-t_args		*my_str_args(char const *str)
+t_args		*my_str_args(char const *str, char const *del)
 {
   t_args	*args;
   char		*copy;
@@ -47,13 +47,13 @@ t_args		*my_str_args(char const *str)
   pos = 0;
   copy = my_strdup(str);
   args = my_malloc(sizeof(t_args));
-  args->ac = char_count(copy, ' ') + 1;
+  args->ac = char_count(copy, *del) + 1;
   args->av = my_malloc(sizeof(char*) * (args->ac + 1));
-  buff = strtok(copy, " ");
+  buff = strtok(copy, del);
   while (buff != NULL)
     {
       args_add(args, buff, &pos);
-      buff = strtok(NULL, " ");
+      buff = strtok(NULL, del);
     }
   args->ac = pos;
   free(copy);

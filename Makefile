@@ -5,7 +5,7 @@
 ## Login   <arnaud.alies@epitech.eu>
 ## 
 ## Started on  Fri May 12 15:02:28 2017 arnaud.alies
-## Last update Thu May 18 10:18:52 2017 arnaud.alies
+## Last update Thu May 18 11:17:04 2017 arnaud.alies
 ##
 
 NAME	=	server
@@ -45,6 +45,7 @@ SRCS	=	$(SRC)main.c \
 		$(SRC_FTP)send.c \
 		$(SRC_FTP)read.c \
 		$(SRC_FTP)passive.c \
+		$(SRC_FTP)port.c \
 		$(SRC_FTP)mode.c \
 		$(SRC_MY)malloc.c \
 		$(SRC_MY)realloc.c \
