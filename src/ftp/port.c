@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 10:35:26 2017 arnaud.alies
-** Last update Thu May 18 11:52:56 2017 arnaud.alies
+** Last update Thu May 18 12:39:55 2017 arnaud.alies
 */
 
 #include "server.h"
@@ -38,8 +38,28 @@ static int	get_ip_port(char *str, uint32_t *ip, int *port)
   return (0);
 }
 
-static int	connect_server(uint32_t ip, int port)
+static int		connect_to_server(uint32_t ip, int port)
 {
+  struct sockaddr_in	serveraddr;
+  int			sockfd;
+  struct protoent	*proto;
+
+  if ((proto = getprotobyname("TCP")) == NULL)
+    return (1);
+  if ((sockfd = socket(AF_INET, SOCK_STREAM, proto->p_proto)) < 0)
+    return (1);
+  clean_add_fd(sockfd);
+  serveraddr.sin_family = AF_INET;
+  serveraddr.sin_port = htons(port);
+  serveraddr.sin_addr.s_addr = ip;
+  if (connect(sockfd,
+	      (const struct sockaddr*)&serveraddr,
+	      sizeof(struct sockaddr_in)) < 0)
+    {
+      clean_close_fd(sockfd);
+      return (1);
+    }
+  g_fd = sockfd;
   return (0);
 }
 
@@ -54,7 +74,7 @@ int		ftp_port(t_ftp *ftp, char *str)
     return (1);
   if (get_ip_port(str, &ip, &port))
     return (1);
-  if (connect_server(ip, port))
+  if (connect_to_server(ip, port))
     return (1);
   /*
   char		buff[BUFF_SIZE];
