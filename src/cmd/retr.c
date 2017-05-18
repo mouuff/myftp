@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 16:25:36 2017 arnaud.alies
-** Last update Thu May 18 18:33:47 2017 arnaud.alies
+** Last update Thu May 18 18:42:30 2017 arnaud.alies
 */
 
 #include <sys/types.h>
@@ -25,6 +25,7 @@ void	send_file(int sockfd, int filefd)
       write(sockfd, buff, r);
     }
   clean_close_fd(sockfd);
+  close(filefd);
 }
 
 int	cmd_retr(t_ftp *ftp, t_args *args)
