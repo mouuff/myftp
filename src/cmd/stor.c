@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 18:52:10 2017 arnaud.alies
-** Last update Thu May 18 19:58:42 2017 arnaud.alies
+** Last update Thu May 18 20:14:59 2017 arnaud.alies
 */
 
 #include <sys/types.h>
@@ -42,7 +42,9 @@ int	cmd_stor(t_ftp *ftp, t_args *args)
     }
   else
     {
-      if ((filefd = open(args->av[1], O_CREAT | O_WRONLY, 0644)) == -1)
+      if ((filefd = open(args->av[1],
+			 O_CREAT | O_WRONLY | O_TRUNC,
+			 0644)) == -1)
         return (ftp_send(ftp, FTP_FAIL, "Failed to create file."));
       ftp_send(ftp, FTP_FILEOK, "Sending file.");
       send_file(sockfd, filefd);
