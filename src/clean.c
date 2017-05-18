@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sat May 13 11:11:48 2017 arnaud.alies
-** Last update Tue May 16 16:34:49 2017 arnaud.alies
+** Last update Thu May 18 11:48:16 2017 arnaud.alies
 */
 
 #include <stdio.h>
@@ -36,6 +36,8 @@ void		clean_close_fd(int fd)
   register int	x;
   register int	y;
 
+  if (fd == -1)
+    return ;
   res =	my_malloc(sizeof(int) * g_size);
   x = 0;
   y = 0;
