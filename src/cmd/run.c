@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Sun May 14 15:47:12 2017 arnaud.alies
-** Last update Thu May 18 10:49:18 2017 arnaud.alies
+** Last update Thu May 18 14:04:04 2017 arnaud.alies
 */
 
 #include <string.h>
@@ -30,9 +30,10 @@ static t_cmd g_logged_cmds[] = {
   {NULL, NULL}
 };
 
-static int	cmd_default(t_ftp *ftp, t_args *args)
+static int	cmd_default(t_ftp *ftp, t_args *args, char *str)
 {
-  if (args->ac <= 0)
+  (void)args;
+  if (strlen(str) <= 0)
     return (0);
   if (ftp->logged)
     {
@@ -86,7 +87,7 @@ int		cmd_run(t_ftp *ftp, char *str)
 	  return (1);
 	}
     }
-  if (run == false && cmd_default(ftp, args))
+  if (run == false && cmd_default(ftp, args, str))
     {
       my_free_str_args(args);
       return (1);
