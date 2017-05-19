@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:50 2017 arnaud.alies
-** Last update Fri May 19 11:12:38 2017 arnaud.alies
+** Last update Fri May 19 16:40:35 2017 arnaud.alies
 */
 
 #ifndef SERVER_H_
@@ -128,13 +128,11 @@ int     ftp_passive_fd();
 int	ftp_port(char *str);
 int     ftp_port_fd();
 
-
 int	ftp_mode_fd(t_ftp *ftp);
 
 int     ftp_read(t_ftp *ftp, char *buff, size_t size);
 int	ftp_send(t_ftp *ftp, t_code code, char *str);
 int	ftp_accept(t_server *server, char *home);
-
 
 /*
 ** Cleaner

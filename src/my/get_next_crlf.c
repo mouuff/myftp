@@ -1,11 +1,11 @@
 /*
-** get_next_line.c for get_next_line in /home/alies/rendu/CPE_2015_getnextline
+** get_next_crlf.c for hue in /home/arnaud.alies/rendu/PSU_2016_myftp
 ** 
-** Made by Arnaud Alies
-** Login   <alies_a@epitech.net>
+** Made by arnaud.alies
+** Login   <arnaud.alies@epitech.eu>
 ** 
-** Started on  Thu Dec 17 13:44:58 2015 Arnaud Alies
-** Last update Wed May 17 10:11:21 2017 arnaud.alies
+** Started on  Fri May 19 16:39:49 2017 arnaud.alies
+** Last update Fri May 19 16:39:50 2017 arnaud.alies
 */
 
 #include <string.h>
