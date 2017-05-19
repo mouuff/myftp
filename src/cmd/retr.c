@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 16:25:36 2017 arnaud.alies
-** Last update Fri May 19 11:39:12 2017 arnaud.alies
+** Last update Fri May 19 13:39:12 2017 arnaud.alies
 */
 
 #include <sys/types.h>
@@ -49,5 +49,4 @@ int	cmd_retr(t_ftp *ftp, t_args *args)
       send_file(sockfd, filefd);
       return (ftp_send(ftp, FTP_CLOSING_DATA, "Closing data connection."));
     }
-  return (0);
 }
