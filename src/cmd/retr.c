@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Thu May 18 16:25:36 2017 arnaud.alies
-** Last update Fri May 19 11:35:45 2017 arnaud.alies
+** Last update Fri May 19 11:39:12 2017 arnaud.alies
 */
 
 #include <sys/types.h>
@@ -41,7 +41,10 @@ int	cmd_retr(t_ftp *ftp, t_args *args)
       if ((filefd = open((args->ac > 1 ? args->av[1] : "" ), O_RDONLY)) == -1)
 	return (ftp_send(ftp, FTP_FAIL, "Failed to open file."));
       if ((sockfd = ftp_mode_fd(ftp)) < 0)
-	return (ftp_send(ftp, FTP_CANT_DATA, "Can't open data connection."));
+	{
+	  close(filefd);
+	  return (ftp_send(ftp, FTP_CANT_DATA, "Can't open data connection."));
+	}
       ftp_send(ftp, FTP_FILEOK, "Sending file.");
       send_file(sockfd, filefd);
       return (ftp_send(ftp, FTP_CLOSING_DATA, "Closing data connection."));
