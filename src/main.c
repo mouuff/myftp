@@ -5,7 +5,7 @@
 ** Login   <arnaud.alies@epitech.eu>
 ** 
 ** Started on  Fri May 12 15:08:36 2017 arnaud.alies
-** Last update Wed May 17 22:22:13 2017 arnaud.alies
+** Last update Fri May 19 17:14:35 2017 arnaud.alies
 */
 
 #include <stdlib.h>
@@ -17,17 +17,6 @@ void	sigint(int sig)
 {
   (void)sig;
   exit(0);
-}
-
-void	test()
-{
-  char	*lol;
-
-  while ((lol = get_next_crlf(0)) != NULL)
-    {
-      printf("%s\n", lol);
-    }
-  
 }
 
 int		main(int ac, char **av)
@@ -44,7 +33,7 @@ int		main(int ac, char **av)
   port = atoi(av[1]);
   home = av[2];
   signal(SIGINT, &sigint);
-  atexit(clean);  
+  atexit(clean);
   if (server_init(&server, port, true))
     return (1);
   printf("Server listenning on: %d\n", port);
